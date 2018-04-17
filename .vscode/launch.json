@@ -5,7 +5,7 @@
             "name": "Launch",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/built/src/app.js",
+            "program": "${workspaceRoot}/bin/www",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceRoot}",
@@ -27,7 +27,7 @@
             "name": "Debug",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/built/app.js",
+            "program": "${workspaceRoot}/bin/www",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceRoot}",
@@ -53,7 +53,7 @@
             "restart": false,
             "sourceMaps": false,
             "outFiles": [
-              "${workspaceRoot}/built/src/**/*"
+              "${workspaceRoot}/built/**/*"
             ],
             "localRoot": "${workspaceRoot}",
             "remoteRoot": null
