@@ -8,18 +8,7 @@ import { SheetsRegistry } from 'react-jss/lib/jss';
 import JssProvider from 'react-jss/lib/JssProvider';
 import { MuiThemeProvider, createMuiTheme, createGenerateClassName } from 'material-ui/styles';
 
-interface IProps  {
-  store: any;
-  theme: any;
-  match: any;
-}
-
-interface IState {
-  hasError: boolean;
-}
-
 export function createClientApp(componant, theme, store) {
-
   // Create a sheetsRegistry instance.
   const sheetsRegistry = new SheetsRegistry();
 
