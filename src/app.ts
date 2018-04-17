@@ -1,7 +1,10 @@
-﻿import * as express from 'express';
+﻿process.env.NODE_PATH = __dirname;
+require('module').Module._initPaths();
+
+import * as express from 'express';
 import assign = require('object-assign');
 let path = require('path');
-import AppServer from './app-server';
+import AppServer from 'app-server';
 
 export interface AppConfigType {
   root: string;

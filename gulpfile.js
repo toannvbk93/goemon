@@ -47,9 +47,10 @@ gulp.task('nodemon', (callback) => {
   var called = false;
 
   return nodemon({
-    verbose:false,
+    verbose: false,
     script: './bin/www',
     delay: "2500",
+    nodeArgs: ["NODE_PATH=./built"],
     ext: 'js html css ejs ico txt pdf json',
     ignore: [
       'built/client/*',

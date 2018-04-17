@@ -15,6 +15,7 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?)$",
+    "modulePaths": ["./built/"],
     "moduleFileExtensions": [
       "js",
       "jsx",

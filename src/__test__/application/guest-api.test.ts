@@ -1,4 +1,4 @@
-import * as app from '../../app';
+import * as app from 'app';
 import * as supertest from 'supertest';
 
 describe('/guest-api test', () => {
