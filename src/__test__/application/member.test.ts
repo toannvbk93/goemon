@@ -1,7 +1,7 @@
 import * as app from '../../app';
 import * as supertest from 'supertest';
 
-describe('Test sample', () => {
+describe('/memger test', () => {
 
   let agent: supertest.SuperTest<supertest.Test>;
 
@@ -16,26 +16,37 @@ describe('Test sample', () => {
       .expect(302, done);
   });
 
-  test('/member/profile ( not authorized )', async () => {
-    const response = await supertest(app.init()).get('/member/profile');
-    expect(response.status).toBe(302);
-  });
-
-  it('/member/profile', (done) => {
-    agent.get('/member/profile')
+   it('/member/', (done) => {
+    agent.get('/member/')
       .expect(200)
       .end(done);
   });
 
-  it('/api/me', (done) => {
-    agent.get('/api/me')
-      .expect(200)
-      .end((err, response) => {
-        expect(response.type).toBe('application/json');
-        let result = JSON.parse(response.text);
-        let expected = {id: 1, userid: 'test@example.com', username: 'Test User'};
-        expect(result).toEqual(expected);
-        done();
-      });
+  test('/member/ ( not authorized )', async () => {
+    const response = await supertest(app.init()).get('/member/');
+    expect(response.status).toBe(302);
   });
+
+  // test('/member/profile ( not authorized )', async () => {
+  //   const response = await supertest(app.init()).get('/member/profile');
+  //   expect(response.status).toBe(302);
+  // });
+
+  // it('/member/profile', (done) => {
+  //   agent.get('/member/profile')
+  //     .expect(200)
+  //     .end(done);
+  // });
+
+  // it('/api/me', (done) => {
+  //   agent.get('/api/me')
+  //     .expect(200)
+  //     .end((err, response) => {
+  //       expect(response.type).toBe('application/json');
+  //       let result = JSON.parse(response.text);
+  //       let expected = {id: 1, userid: 'test@example.com', username: 'Test User'};
+  //       expect(result).toEqual(expected);
+  //       done();
+  //     });
+  // });
 });

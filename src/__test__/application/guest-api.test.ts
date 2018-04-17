@@ -1,11 +1,11 @@
 import * as app from '../../app';
 import * as supertest from 'supertest';
 
-describe('/hello test', () => {
+describe('/guest-api test', () => {
 
   let agent: supertest.SuperTest<supertest.Test>;
 
-  test('/hello', (done) => {
+  test('/api hello()', (done) => {
     const request = supertest.agent(app.init());
     const query = {
       query: `
@@ -21,15 +21,15 @@ describe('/hello test', () => {
       plus: 3
     };
 
-    request.post('/hello')
-    .set('Accept', 'application/json')
-    .send(query)
-    .then(res => {
-      expect(res.body.data).toEqual(expected);
-      done();
-    })
-    .catch(err => {
-      done(err);
-    });
+    request.post('/api')
+      .set('Accept', 'application/json')
+      .send(query)
+      .then(res => {
+        expect(res.body.data).toEqual(expected);
+        done();
+      })
+      .catch(err => {
+        done(err);
+      });
   });
 });
