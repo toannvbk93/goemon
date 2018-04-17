@@ -1,7 +1,7 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import Button from 'material-ui/Button';
 import { Theme, withStyles, WithStyles } from 'material-ui/styles';
+
+import Button from 'material-ui/Button';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
@@ -10,103 +10,12 @@ import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
 import Divider from 'material-ui/Divider';
 import MenuItem from 'material-ui/Menu/MenuItem';
-import { mailFolderListItems, otherMailFolderListItems } from './components/tileData';
 
-const drawerWidth = 240;
+import { mailFolderListItems, otherMailFolderListItems } from './member/member-menu';
+import { styles, StylesTypes } from './member/member-style';
 
 interface IProps  {
 }
-
-const styles = (theme: Theme) => ( {
-  root: {
-    flexGrow: 1,
-    height: 1600,
-    zIndex: 1,
-    overflow: 'hidden',
-    position: 'relative',
-    display: 'flex'
-  },
-  title: {
-    flex: 1,
-    color: '#ffffff',
-  },
-  logout: {
-    color: '#ffffff',
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    textColor: '#efefef',
-    color: '#061345',
-    height: 60,
-  },
-  drawerPaper: {
-    position: 'relative',
-    width: drawerWidth,
-  },
-  content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
-    minWidth: 0, // So the Typography noWrap works
-  },
-  toolbar: theme.mixins.toolbar,
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 200,
-  },
-  menu: {
-    width: 200,
-  },
-});
-
-const stylesTypes = {
-  root: {
-    flexGrow: 1,
-    height: 430,
-    zIndex: 1,
-    overflow: 'hidden',
-    position: 'relative',
-    display: 'flex'
-  },
-  title: {
-    flex: 1,
-    color: '#ffffff'
-  },
-  logout: {
-    color: '#ffffff'
-  },
-  appBar: {
-    zIndex: 1,
-  },
-  drawerPaper: {
-    position: 'relative',
-    width: drawerWidth,
-  },
-  content: {
-    flexGrow: 1,
-    backgroundColor: 1,
-    padding: 1,
-    minWidth: 0, // So the Typography noWrap works
-  },
-  toolbar: 1,
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: 1,
-    marginRight: 1,
-    width: 200,
-  },
-  menu: {
-    width: 200,
-  },
-};
 
 const currencies = [
   {
@@ -127,7 +36,7 @@ const currencies = [
   },
 ];
 
-type ClassNames = keyof typeof stylesTypes;
+type ClassNames = keyof StylesTypes;
 
   class MemberView extends React.Component<IProps & WithStyles<ClassNames>, {}> {
 

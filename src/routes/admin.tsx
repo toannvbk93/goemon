@@ -15,7 +15,7 @@ const router = Router();
 let jsDate: number = 0;
 
 module.exports = (app) => {
-  app.use('/member', router);
+  app.use('/admin', router);
 };
 
 router.get('/login',  (req: any, res, next) => {
@@ -57,9 +57,9 @@ router.get('*', isAuthenticated, (req, res) => {
       return res.redirect(302, context.url);
     }
 
-    res.render('member', {
+    res.render('admin', {
       userid: PassportUtility.getUserId(req),
-      title: '配信管理者画面',
+      title: 'システム管理者画面',
       html: contents.html,
       css: contents.css,
       initialState: JSON.stringify(store.getState()),
