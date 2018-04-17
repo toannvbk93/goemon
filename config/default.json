@@ -1,0 +1,38 @@
+{
+  "appConfig": {
+    "checkEmailVerified": "true"
+  },
+  "dbConfig": {
+    "connectionString": "mongodb://ubn:1QaZxCvB@ds038739.mlab.com:38739/flow-test-ls"
+  },
+  "session": {
+    "secret": "Aihd82920rjhdjqao299euudh3!@Zq",
+    "resave": false,
+    "saveUninitialized": false,
+    "cookie": {
+      "maxAge" : 3600000
+    }
+  },
+  "firebaseConfig":{
+    "client":{
+      "apiKey": "AIzaSyBgBdanilIy4GQmukXy0bc6D2MAmtX1fvc",
+      "authDomain": "test-firebase-69c85.firebaseapp.com",
+      "databaseURL": "https://test-firebase-69c85.firebaseio.com",
+      "storageBucket": "test-firebase-69c85.appspot.com",
+      "messagingSenderId": "828132033756"
+    },
+    "admin": {
+      "credential": {
+        "projectId": "test-firebase-69c85",
+        "clientEmail": "firebase-adminsdk-6ucnq@test-firebase-69c85.iam.gserviceaccount.com",
+        "privateKey": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC9MAzrkzw7wyyt\nFkFtHl7E1i3rgWgH/I78lubu23+0Eob/NyN9Et3zcquaGL5QVKBnv4XYSma7Tl9q\nv6KVl+3cCkvpfSCOp0wBjEkSxSCiHM/nxrxbL+64vZ0u3pjdajdUuMunvGpzlCM+\nzYfbOT5F8HCLVdanA8Ge6TWUWzRwUKjdrLLLhbOfz/QcOoJUsXN8IsEx9OkjNZb7\n3fCEMlL3UkENvsZyinuPQ+aVRP4bXHfQ+h5yGYF5ALp93DWE0s9VnjsKnxedHSuF\nkSlvSnxEezchmHVNgBZJx/EFePnkUwXk/0tMomcWuIz1XXwP17Am7VYN2epkY454\nrkOnu1WlAgMBAAECggEBAKhq7DWS/x4co9r6Ywgm7yq/mGV88AWcGhZWqAKfONIv\nZCozBc7ESv38aTNnL5UHoTx6zUY9BbNdE6hOLQiLFd6689VJ5P/Zgtol7q9c+a4X\nhCXLT8bFpvijJBijZOZHNjafw/zwyLtXdwDjqzvHe957K1V+9vX7bBRxe5c0kjwg\nqKDtv0v98s933YxR3/BrueAxhRAtcmd3okMa7LJv2HKRkgA8FOVbqZc3CHpwYgGn\nvQNcFsXCszgh1g5lJhScdAF2WHrTNpdLr2YE1S3KKfZzW7ptaA5B4DBE/yxF7VBi\nsGhjYSex7JdkPMyl+srSMoDOzXJUeQISAv8//GS4ZwECgYEA8QBNaVHkIaMGd8lM\npUe6F0gU/Yv344wxoIcoDg8SSUCxqijP5wE64PZyycNVHGb1GF4zHP7kZTOWjnvx\nIdLxVS+CfYYrhcV3ofcaHA4jrzeJAVbxdlNhpumGBPXATCnhAs0GAQK+Jq5IBoKV\nDTW6rQOs5hvTe++cprc/mWLRa4UCgYEAyPY9xWZfGTnGswFguHRAJUsTUFgOgnCT\nv0voChVO42VxIs7uhE7YhTcT3OquXjmUCfeEEB+3aOgqtEcXyam1R4D9SdRCoSCt\nji7DdU8cf82NbXdq06S2dPuuYpmRRKUg+zVNtzxoPSw1E6pQIuKEKFxDOhVHLHod\n8rqHuMFIC6ECgYEA2eOgGXyEeTTfgCVrOnNi9/GfqKyHbh8uLyiDOlK+AaSP/Hvx\nm7Us+n9WwLvtk0Qyi9l+9NQuwqClmiTMmfwRXScbH0nSx5sE0laKMJtH//6By8hD\nfutb+oBfPtTBCxtB6DpdF0TXjjk7vUcKY2sUX6BXDaRSzFaSlthOk+sX09ECgYEA\nsw48AZtyFk7VTP9oR1FFKjVXUxnya6SU8DhY2kscDB6BjIsmF/sMjr2BVDBCBrB0\nx+Ci6Z7o028xRYmml0c/vyMeC181ss0j9nCSNP61HOZwId3p8ANtkpQBT9cWiTw8\nQ7e9tAr9saum6wuv9TUwnal/OMxmqylvb6tlbGfCoqECgYBG4Q0OTjstGs6XD9/k\n3BNekU5zSnTewZqnVMYbrvAMc6/WX72HSXuehWq3Oq1Df6NpUwUEcPfMPn96qSry\nUHlT/w42yp/VykoX68DEOClNUkRrz62L9vaZpCoRKUIhY7KtMQdQnYCUyrAEN75S\nfcclzkl/0YYa45YirBVQn3QOeQ==\n-----END PRIVATE KEY-----\n"
+      },
+      "databaseURL": "https://test-firebase-69c85.firebaseio.com"
+    }
+  },
+  "mailgun":{
+    "domain": "smerp.io",
+    "api_key": "key-45zmfxc4d5z7lkgp0arrw73f5jhan8i9"
+  },
+  "secret": "xQ1J9fQXpxOPRFmhpmajplE4eMMKNbFTPqZwzf6zrXI8RCX1SUPWA9ItXq3IAKZwRifwq7ZfpGP4TmmxwQHKKBP5VMU4rRDckAZaIsZykGP8lFhjjrjlMt96hf5yYoZpq8Dj3zTsFG6wUPmnT8LKSaOmREwGt9ALn4Tcvab0CMz2LNSlY55cNKVOmY4CICQVwT6RyWsLbh0iqPY9l9CYzx6NUr5k4k3h34Eez4URSjJHbcVPtfreCUOCvQrToeijaJZSnWoWFFHXTLxlOYcHJ8uNC5OsbI15EICw5Z00nXxrQHlKzpTgpHbHYZ8Gk"
+}

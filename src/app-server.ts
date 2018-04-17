@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as session from 'express-session';
-
-import { ConfigType } from './config/config';
+import * as config from 'config';
+import { AppConfigType } from './app';
 const domain = require('domain');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -16,25 +16,25 @@ const flash = require('connect-flash');
 class AppServer {
 
   public app: any; //express app
-  public config: ConfigType;
+  public appConfig: AppConfigType;
 
   constructor() {
   }
 
   // start express application
-  public initalize(app: any, config: ConfigType) {
+  public initalize(app: any, appConfig: AppConfigType) {
     this.app = app;
-    this.config = config;
+    this.appConfig = appConfig;
 
     // view engine setup
-    app.set('views', path.join(config.root, 'views'));
+    app.set('views', path.join(appConfig.root, 'views'));
     app.set('view engine', 'ejs');
 
     // validator
     app.use(expressValidator());
 
     // favicon
-    app.use(favicon(path.join(config.root, '.', 'public', 'favicon.ico'))); // uncomment after placing your favicon in /public
+    app.use(favicon(path.join(appConfig.root, '.', 'public', 'favicon.ico'))); // uncomment after placing your favicon in /public
 
     // logger
     app.use(logger('dev'));
@@ -48,15 +48,15 @@ class AppServer {
 
     // session
     app.use(session({
-      secret: config.session.secret,
-      resave: config.session.resave,
-      saveUninitialized: config.session.saveUninitialized,
-      cookie: { maxAge: config.session.cookie.maxAge }
+      secret: config.get('session.secret'),
+      resave: config.get('session.resave'),
+      saveUninitialized: config.get('session.saveUninitialized'),
+      cookie: { maxAge: config.get('session.cookie.maxAge') }
     }));
 
     // public folder path
     const cacheTime = 10000;     // 10s
-    app.use(express.static(path.join(config.root, '.', 'public'), {
+    app.use(express.static(path.join(appConfig.root, '.', 'public'), {
       maxAge: cacheTime,
       lastModified: true,
       redirect: true }
@@ -77,7 +77,7 @@ class AppServer {
     app.use(passport.session());
 
     // Setup auth
-    let middlewares = glob.sync(config.root + '/middlewares/*.+(js|ts|jsx|tsx)');
+    let middlewares = glob.sync(appConfig.root + '/middlewares/*.+(js|ts|jsx|tsx)');
     middlewares.forEach(function (middleware) {
       console.log('Loading middleware : ' + middleware);
       require(middleware)(app);
@@ -134,8 +134,8 @@ class AppServer {
   }
 
   public async start() {
-    this.app.listen(this.config.port, () => {
-      return ('Express server listening on port ' + this.config.port);
+    this.app.listen(this.appConfig.port, () => {
+      return ('Express server listening on port ' + this.appConfig.port);
     });
   }
 }

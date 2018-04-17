@@ -1,43 +1,34 @@
 ﻿import * as express from 'express';
+import assign = require('object-assign');
 let path = require('path');
-import { ConfigType } from './config/config';
 import AppServer from './app-server';
 
-let app: express.Express;
-let config: ConfigType;
+export interface AppConfigType {
+  root: string;
+  port: string;
+}
 
-export function init() {
+let app: express.Express;
+let appConfig: AppConfigType;
+
+export function init(initConfig?: AppConfigType) {
   app = express();
 
   if ( 'development' === app.get('env') ) {
-    config = {
+    appConfig = {
       root: path.normalize(__dirname),
-      port: process.env.PORT || '3000',
-      session: {
-        secret: 'Aihd82920rjhdjqao299euudh3!@Zq',
-        resave: false,
-        saveUninitialized: false,
-        cookie: {
-          maxAge : 3600000 // 60 * 60 * 1000
-        }
-      }
+      port: process.env.PORT || '3000'
     };
   } else {
-    config = {
+    appConfig = {
       root: path.normalize(__dirname),
       port: process.env.PORT,
-      session: {
-        secret: 'Aihd82920rjhdjqao299euudh3!@Zq',
-        resave: false,
-        saveUninitialized: false,
-        cookie: {
-          maxAge : 3600000 // 60 * 60 * 1000
-        }
-      }
     };
   }
 
-  AppServer.initalize(app, config);
+  assign({}, appConfig, initConfig);
+
+  AppServer.initalize(app, appConfig);
 
   process.on('uncaughtException', (err: any) => {
     console.log(err);
