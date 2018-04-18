@@ -6,12 +6,12 @@ describe('/hello test', () => {
 
   let agent: supertest.SuperTest<supertest.Test>;
 
-  test('hello', async (done) => {
+  test('/api hello', async (done) => {
 
     let server = createServer(app);
     const request = supertest.agent(server.app);
 
-    HelloService.hello('http://localhost:' + server.port + '/hello').then( result => {
+    HelloService.hello('http://localhost:' + server.port + '/api').then( result => {
       expect(result).toEqual('Hello world!');
       done();
     });
