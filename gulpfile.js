@@ -20,7 +20,7 @@ var tslintconfig = require('./tslint.json');
 var PRODUCT = JSON.parse(process.env.PROD_ENV || '0');
 
 var PRODUCT = JSON.parse(process.env.PROD_ENV || '0');
-var targetPath = './built';
+var targetPath = './build';
 var exec = require('child_process').exec;
 
 // Default task
@@ -50,12 +50,11 @@ gulp.task('nodemon', (callback) => {
     verbose: false,
     script: './bin/www',
     delay: "2500",
-    nodeArgs: ["NODE_PATH=./built"],
     ext: 'js html css ejs ico txt pdf json',
     ignore: [
-      'built/client/*',
-      'built/public/*',
-      'built/__test__/*',
+      'build/client/*',
+      'build/public/*',
+      'build/__test__/*',
       '*.test.ts',
       '*.test.js',
       '*.ts',
@@ -105,7 +104,7 @@ gulp.task('rebuild', ['clean'], () => {
   runSequence('copy-assets', 'tsc', 'css', 'lint', 'webpack-release');
 });
 
-// Copy nesesarry asserts to built folder
+// Copy nesesarry asserts to build folder
 gulp.task('copy-assets', () => {
   gulp.src(
     ['src/public/**/', '!src/public/**/*.scss', 'src/views/**/', 'config/**/' ],
@@ -120,12 +119,12 @@ gulp.task('css', () => {
     .pipe(plumber())
     .pipe(sass())
     .pipe(cssmin())
-    .pipe(gulp.dest('./built/public/css'));
+    .pipe(gulp.dest('./build/public/css'));
   } else {
     gulp.src('./src/public/css/**/*.scss')
     .pipe(plumber())
     .pipe(sass())
-    .pipe(gulp.dest('./built/public/css'));
+    .pipe(gulp.dest('./build/public/css'));
   }
 });
 
@@ -142,7 +141,7 @@ gulp.task('webpack', () => {
     .pipe(gulpWebpack(Object.assign({}, webpackConfig[0], {
       watch: false,
       }), webpack))
-    .pipe(gulp.dest('built/public/js'))
+    .pipe(gulp.dest('build/public/js'))
     .pipe(browserSync.stream());
 });
 

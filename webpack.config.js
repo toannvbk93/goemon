@@ -8,7 +8,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader')
 
 const PRODUCT = JSON.parse(process.env.PROD_ENV || '0');
-const targetPath = __dirname + '/built';
+const targetPath = __dirname + '/build';
 
 const config = [
   {
@@ -39,7 +39,11 @@ const config = [
     },
     resolve: {
         // modulesDirectories: ['node_modules', 'components'],
-        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx']
+        extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx'],
+        modules: [
+          path.resolve(__dirname, 'src'),
+          'node_modules'
+        ]
     },
     plugins: [
         new webpack.DefinePlugin({

@@ -77,7 +77,7 @@ class AppServer {
     app.use(passport.session());
 
     // Setup auth
-    let middlewares = glob.sync(appConfig.root + '/middlewares/*.+(js|ts|jsx|tsx)');
+    let middlewares = glob.sync(__dirname + '/middlewares/*.+(js|jsx|ts|tsx)');
     middlewares.forEach(function (middleware) {
       console.log('Loading middleware : ' + middleware);
       require(middleware)(app);
@@ -86,7 +86,7 @@ class AppServer {
     // require(__dirname + '/middlewares/passport')(app);
 
     // Setup routes
-    let routes = glob.sync(__dirname + '/routes/*.+(js|ts|jsx|tsx)');
+    let routes = glob.sync(__dirname + '/routes/*.+(js|jsx|ts|tsx)');
     routes.forEach(function (route) {
       console.log('Loading route : ' + route);
       require(route)(app);
