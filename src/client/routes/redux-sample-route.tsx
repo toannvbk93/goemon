@@ -9,6 +9,7 @@ import TodoApp from '../apps/todo-app';
 import TodoList from '../views/todo-list';
 import TodoCounter from '../views/todo-counter';
 import { NotFound } from '../views/components/notfound';
+import ToannvApp from '../apps/toannv-app';
 
 export const routes = [
   {
@@ -20,6 +21,9 @@ export const routes = [
   }, {
     path: '/*',
     component: NotFound
+  }, {
+    path: '/toannv',
+    component: ToannvApp
   }
 ];
 

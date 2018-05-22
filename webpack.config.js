@@ -16,7 +16,8 @@ const config = [
     entry: {
       'simple-sample' : './src/client/simple-sample',
       'redux-sample' : './src/client/redux-sample',
-      'member-sample' : './src/client/member-sample'
+      'member-sample' : './src/client/member-sample',
+      'toannv-sample' : './src/client/toannv-sample'
     },
     // watch: true,
     output: {
