@@ -1,11 +1,14 @@
 import * as React from 'react';
-// import './styles/home.css';
 
 class ToannvView extends React.Component {
   render() {
     return (
-      <div>
-       Toannv
+      <div className="main">
+      <h1>Page toannv</h1>
+       <div  className="header">
+        <input type="text" name="input" />
+        <button type="submit">Submit</button>
+       </div>
       </div>
     );
   }
