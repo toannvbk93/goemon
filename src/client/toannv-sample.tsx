@@ -4,4 +4,6 @@ import { Router } from 'react-router';
 
 import ToannvApp from './apps/toannv-app';
 
-ReactDOM.render(<ToannvApp />, document.getElementById('toannv')); //
+let win: any = window;
+const props = win.__PRELOADED_STATE__;
+ReactDOM.render(<ToannvApp { ...props } />, document.getElementById('app')); //
