@@ -6,24 +6,17 @@ import Button from 'material-ui/Button';
 
 export interface IMainState {
   text: string;
-  items?: any;
-  hasError: boolean;
-  errorInfo: string;
+  result: string;
 }
 
-export interface IMainProps {
-  items?: any;
-  children?: any;
-}
-
-export default class ToannvApp extends React.Component<IMainProps, IMainState> {
+export default class ToannvApp extends React.Component<IMainState> {
 
   state: IMainState = {
-    text : '',
-    items : [],
-    hasError: false,
-    errorInfo: ''
+    text: '',
+    result: 'Ask something'
   };
+  arrayAsks = ['what are you doing', 'how are you', 'what this mean', 'good morning'];
+  arrayAnwsers = ['I am coding', 'I am fine thanks you', 'What do you want to ask?', 'good morning'];
 
   constructor(props) {
     super(props);
@@ -33,49 +26,34 @@ export default class ToannvApp extends React.Component<IMainProps, IMainState> {
     this.onClickAdd = this.onClickAdd.bind(this);
   }
 
-  public componentDidMount() {
-    this.state.items = this.props.items;
-    this.setState(this.state);
-  }
-
-  public componentDidCatch(error, info) {
-    // Display fallback UI
-    this.setState({
-       hasError: true,
-       errorInfo: info
-      });
-    // You can also log the error to an error reporting service
-  }
-
   public onChange(e) {
-    this.setState({text: e.target.value});
+    this.setState({ text: e.target.value });
   }
 
   public onClickAdd(e) {
-    let itemCount = this.state.items.length + 1;
-    let item = {
-      id: itemCount,
-      text: this.state.text
-    };
-    this.state.items.push(item);
-    this.setState(this.state);
+    // this.arrayKey.find(x => x === this.state.text
+    if (this.arrayAsks.indexOf(this.state.text) !== null) {
+      let i = this.arrayAsks.indexOf(this.state.text);
+      this.setState({result: this.arrayAnwsers[i]});
+    } else {
+      this.setState({result: 'we are so sorry! we can not anwser with your question!'});
+    }
   }
 
   public render() {
-    const { items = [], hasError, errorInfo } = this.state;
+    const { text, result } = this.state;
 
     return (
-        <div>
-          { hasError ? <p>ERROR</p> : null }
-          <h3>Simple Item View</h3>
-          <ul>
-            {items.map(item => {
-              return (<li key={item.id}>{item.id}: {item.text}</li>);
-            })}
-          </ul>
-          <input onChange={this.onChange} value={this.state.text} />
-          <button onClick={this.onClickAdd}>{'Add #' + (this.state.items.length + 1)}</button>
-        </div>
+      <div>
+          <div className="form-group">
+            <input onChange={this.onChange} value={this.state.text} className="form-control" />
+          </div>
+          <button onClick={this.onClickAdd} type="submit" className="btn btn-default">Ask me</button>
+          <br/>
+          <br/>
+          <br/>
+          <p>{result}</p>
+      </div>
     );
   }
 }
